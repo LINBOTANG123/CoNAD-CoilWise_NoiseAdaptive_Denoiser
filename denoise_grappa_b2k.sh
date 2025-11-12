@@ -1,0 +1,11 @@
+python inference_final_mag_cplx_grappa.py \
+  --model_pth /home/lin/Downloads/newmodel/net_g_216000.pth \
+  --mri_list /home/lin/Downloads/grappa_b2k/paths_b2k.txt \
+  --mri_format grappa \
+  --mri_key img_coil_single_dir \
+  --use_noise \
+  --noise_mat /home/lin/Downloads/grappa_b1k/pf1_noise_v4.mat \
+  --noise_key image \
+  --noise_format grappa \
+  --output_folder ./results_newmodel_grappa_b2k_mask \
+  --brain_mask /home/lin/Downloads/grappa_b1k/grappa_mask.nii
