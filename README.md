@@ -59,3 +59,8 @@ python basicsr/train.py \
   -opt Denoising/Options/CoNAD.yml \
 ```
 
+---
+
+Acknowledgment:
+Our denoising framework is built upon the excellent Restormer architecture and the BasicSR training library. We sincerely thank the authors for making their work and code publicly available.
+
