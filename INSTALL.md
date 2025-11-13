@@ -5,21 +5,22 @@ Follow these intructions
 
 1. Clone our repository
 ```
-git clone https://github.com/swz30/Restormer.git
-cd Restormer
+git clone https://github.com/LINBOTANG123/CoNAD-CoilWise_NoiseAdaptive_Denoiser.git
+cd CoNAD-CoilWise_NoiseAdaptive_Denoiser
 ```
 
 2. Make conda environment
 ```
-conda create -n pytorch181 python=3.7
-conda activate pytorch181
+conda create -n pytorch113 python=3.7
+conda activate pytorch113
 ```
 
 3. Install dependencies
 ```
-conda install pytorch=1.8 torchvision cudatoolkit=10.2 -c pytorch
+pip install torch==1.13.1+cu116 torchvision==0.14.1+cu116 torchaudio==0.13.1 --extra-index-url https://download.pytorch.org/whl/cu116
 pip install matplotlib scikit-learn scikit-image opencv-python yacs joblib natsort h5py tqdm
-pip install einops gdown addict future lmdb numpy pyyaml requests scipy tb-nightly yapf lpips
+pip install einops gdown addict future lmdb numpy pyyaml requests scipy tb-nightly yapf lpips nibabel
+
 ```
 
 4. Install basicsr
@@ -27,27 +28,3 @@ pip install einops gdown addict future lmdb numpy pyyaml requests scipy tb-night
 python setup.py develop --no_cuda_ext
 ```
 
-### Download datasets from Google Drive
-
-To be able to download datasets automatically you would need `go` and `gdrive` installed. 
-
-1. You can install `go` with the following
-```
-curl -O https://storage.googleapis.com/golang/go1.11.1.linux-amd64.tar.gz
-mkdir -p ~/installed
-tar -C ~/installed -xzf go1.11.1.linux-amd64.tar.gz
-mkdir -p ~/go
-```
-
-2. Add the lines in `~/.bashrc`
-```
-export GOPATH=$HOME/go
-export PATH=$PATH:$HOME/go/bin:$HOME/installed/go/bin
-```
-
-3. Install `gdrive` using
-```
-go get github.com/prasmussen/gdrive
-```
-
-4. Close current terminal and open a new terminal. 

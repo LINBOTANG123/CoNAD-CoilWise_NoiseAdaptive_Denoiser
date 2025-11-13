@@ -107,7 +107,6 @@ def load_noise_data(mat_path, key='k_gc', data_format='b1000', output_space='mag
         # Transpose to (H, W, coils, slices)
         data = np.transpose(raw, (2, 3, 1, 0))
         return data
-<<<<<<< HEAD
     elif data_format == 'grappa':
         # Expect raw shape: (slices, coils, H, W) = (S, C, H, W)
         if raw.ndim != 4:
@@ -116,8 +115,6 @@ def load_noise_data(mat_path, key='k_gc', data_format='b1000', output_space='mag
         # Transpose to (H, W, coils, slices)
         data = np.transpose(raw, (2, 3, 0, 1))  # -> (H, W, S, C)
 
-=======
->>>>>>> 28fd6abf92a8710f7b390afc3fbff0332a951f35
     else:
         raise ValueError(f"Unrecognized data_format: {data_format}")
 

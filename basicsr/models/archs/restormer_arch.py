@@ -131,17 +131,6 @@ class Attention(nn.Module):
     def forward(self, x, noise_embed=None):
         b, c, h, w = x.shape
 
-        # CHANGE_1
-        # if noise_embed is not None:
-        #     noise_embed = self.noise_proj(noise_embed)
-        #     x = x + noise_embed  # Add (instead of concat) so dimensions remain unchanged
-        
-        # if noise_embed is not None:
-        #     noise_embed = self.noise_proj(noise_embed)
-        #     x = torch.cat([x, noise_embed], dim=1)   # channel-concat
-        #     # Adjust qkv to accept double channels:
-        #     qkv = self.qkv_dwconv(self.qkv(x))
-
         # inside Attention.forward
         y = x
         if noise_embed is not None:
@@ -327,18 +316,7 @@ class Restormer(nn.Module):
             out_dec_level1 = self.output(out_dec_level1)
         ###########################
         else:
-            # out_conv = self.output(out_dec_level1)
-            # CHANGE_2
             out_dec_level1 = inp_img[:, :self.out_channels] + self.output(out_dec_level1)
-
-            # Use different skip connections depending on output channels.
-            # if self.out_channels == 1:
-            #     # Compute the RSS over the first half of the input channels (assumed MRI images).
-            #     skip = inp_img[:, :self.out_channels, :, :]
-            # else:
-            #     # Otherwise, simply use the first out_channels from inp_img.
-            #     skip = inp_img[:, :self.out_channels, :, :]
-            # out_dec_level1 = out_conv + skip
 
 
 
