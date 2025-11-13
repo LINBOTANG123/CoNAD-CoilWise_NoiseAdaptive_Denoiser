@@ -1,5 +1,5 @@
 
-## Scanner-adaptive Coil-Level Denoising For Diffusion MRI Using Explicit Noise Priors
+## Scanner-Adaptive Coil-Level Denoising For Diffusion MRI Using Explicit Noise Priors
 
 > **Abstract:** *Diffusion MRI (dMRI) is inherently limited by lowsignal-to-noise ratio (SNR), making denoising essential for preserving microstructural information. Most existing denoisers rely solely on the acquired noisy images, ignoring the significant variations in scanner- and coil-specific noise characteristics. In this work, we propose a scanner- and coil-adaptive denoising framework for multi-coil dMRI that leverages explicit noise priors and coil-level processing. Specifically, our model conditions the denoising network on the scanner’s noise standard deviation, estimated from a rapid “noise scan”. Furthermore, denoising is performed at the individual coil level prior to root-sum-of-squares combination, which dramatically reduces the noise floor while better preserving anatomical details. Experiments on in-vivo datasets demonstrate that our method achieves superior visual quality and quantitatively lower residual noise compared to state-of-the-art methods, without introducing over-smoothing or bias.* 
 <hr />
@@ -16,9 +16,6 @@ You can download the pretrained Restormer-based weights for the **CoNAD (Coil-wi
 
 ## 🧠 Run inference
 
-
-### Case 1 — Inputs in *k-space*
-
 If your MRI and noise data are in **k-space**, the script will automatically perform 2D inverse FFTs to convert them into the image domain before denoising:
 
 ```bash
@@ -33,7 +30,7 @@ python inference_denoising.py \
     --output_folder results
 ```
 
-If your MRI and noise data are not in **k-space**:
+If your MRI and noise data are **not** in k-space:
 
 ```bash
 python inference_denoising.py \
